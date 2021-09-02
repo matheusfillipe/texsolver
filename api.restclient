@@ -1,0 +1,6 @@
+POST http://localhost:5000/
+Content-Type: application/json
+
+{
+    "latex": "x^2-1=0"
+}
