@@ -10,12 +10,23 @@ You will need to install [streamlit](https://streamlit.io/) and run it with:
 ```sh
 streamlit run demo.py
 ```
+#### Examples
+![image](https://raw.githubusercontent.com/matheusfillipe/texsovler/main/images/1.jpg)
+![image](https://raw.githubusercontent.com/matheusfillipe/texsovler/main/images/2.jpg)
+![image](https://raw.githubusercontent.com/matheusfillipe/texsovler/main/images/3.jpg)
+
+### Other tools
 
 `api.py` is a simple flask api with a single endpoint.
 
 `cli.py` is cli that takes a latex math expression as input and returns possible completions as lines.
 
-## Examples
-![image](https://raw.githubusercontent.com/matheusfillipe/texsovler/main/images/1.jpg)
-![image](https://raw.githubusercontent.com/matheusfillipe/texsovler/main/images/2.jpg)
-![image](https://raw.githubusercontent.com/matheusfillipe/texsovler/main/images/3.jpg)
+
+### The library
+
+There is only one function that matters:
+
+```python 
+
+```
+

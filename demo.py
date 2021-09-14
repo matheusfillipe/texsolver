@@ -133,7 +133,7 @@ def texSolve(eq):
 "\n"
 "Simply enter with a valid latex formula bellow (without the '$$') and press Ctrl+Enter when you see what you want to get!"
 
-eq = st.text_area("Formula:")
+eq = st.text_area("Input:")
 
 if len(eq) > 0:
     try:
