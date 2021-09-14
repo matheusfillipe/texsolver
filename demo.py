@@ -74,7 +74,6 @@ def processExpression(se):
 
 
 def processFunction(eq):
-    ##TODO return values and better everything here...
     exp = eq.split("=")
     func = parse_latex(exp[-1])
     symbs = list(func.free_symbols)

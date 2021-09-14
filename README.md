@@ -27,6 +27,9 @@ streamlit run demo.py
 There is only one function that matters:
 
 ```python 
-
+from texsuggest import solve
+print(solve(input("Expression to solve: ")))
 ```
+
+`solve` will return a list of strings representing latex formated math expressions
 

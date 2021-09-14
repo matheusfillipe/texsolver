@@ -1,5 +1,5 @@
-;;; texsolver.el emacs functions for texsolver -*- lexical-binding: t; -*-
-;;
+;;; -*- lexical-binding: t; -*-
+;; texsolver.el emacs functions for texsolver
 ;; Copyright (C) 2021 Matheus Fillipe
 ;;
 ;; Author: Matheus Fillipe <https://github.com/matheusfillipe>
@@ -15,6 +15,7 @@
 ;;; Code:
 
 ;; Check if available
+(defvar img-search-temporary-download-path "/tmp/imgsearch_images")
 
 ;; Launch API
 
