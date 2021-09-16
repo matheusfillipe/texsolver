@@ -1,3 +1,4 @@
+import contextlib
 import random
 import re
 import string
@@ -9,6 +10,10 @@ from sympy.parsing.latex import LaTeXParsingError, parse_latex
 from sympy.plotting import plot as spplot
 
 SYMPY_SOLVERS = ["simplify", "expand", "doit"]
+
+def _parse_latex(*args):
+    with contextlib.redirect_stdout(None):
+        return parse_latex(*args)
 
 def solution2tex(sol, sym):
     if len(sol) > 0:
@@ -66,7 +71,7 @@ def plot_function(eq):
         Temporary path for image or None
     """
     exp = eq.split("=")
-    func = parse_latex(exp[-1])
+    func = _parse_latex(exp[-1])
     symbs = list(func.free_symbols)
     if len(symbs) == 1:  # TODO multi dimentional functions
         p = spplot(func, show=False, xlabel=str(symbs[0]), ylabel=exp[0])
@@ -85,7 +90,7 @@ def solve(latex_string):
     :raises: LaTeXParsingError
     """
     # TODO account that all of these can return results
-    sympy_expression = parse_latex(latex_string)
+    sympy_expression = _parse_latex(latex_string)
     function = re.search(r"^\s*[a-zA-Z]\([a-z,]+\)\s*=.*$", latex_string)
     if function and function.group():  # function definition
         return plot_function(latex_string)
@@ -97,13 +102,13 @@ def solve(latex_string):
             return equality_result
         exp = latex_string.split("=")
         usedSols = []
-        for sol in process_expression(parse_latex(exp[0])):
+        for sol in process_expression(_parse_latex(exp[0])):
             if "=" in sol:
                 sol = sol.split("=")[-1].strip()
             if sol not in usedSols:
                 try:
                     solv_eq = sol + " = " + exp[1]
-                    sols += process_equality(parse_latex(solv_eq))
+                    sols += process_equality(_parse_latex(solv_eq))
                     usedSols.append(sol)
                 except NotImplementedError:
                     pass
