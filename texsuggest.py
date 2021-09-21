@@ -9,7 +9,7 @@ from sympy import latex
 from sympy.parsing.latex import LaTeXParsingError, parse_latex
 from sympy.plotting import plot as spplot
 
-SYMPY_SOLVERS = ["simplify", "expand", "doit"]
+SYMPY_SOLVERS = ["simplify", "expand", "doit", "doit_numerically"]
 
 def _parse_latex(*args):
     with contextlib.redirect_stdout(None):
